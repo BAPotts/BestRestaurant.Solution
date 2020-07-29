@@ -3,6 +3,7 @@ using BestRestaurant.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace BestRestaurant.Controllers
 {
@@ -16,12 +17,13 @@ namespace BestRestaurant.Controllers
 
     public ActionResult Index()
     {
-      List<Restaurant> model = _db.Restaurants.ToList();
+      List<Restaurant> model = _db.Restaurants.Include(rest => rest.Cuisine).ToList();
       return View(model);
     }
 
     public ActionResult Create()
     {
+      ViewBag.CuisineId = new SelectList(_db.Cuisine, "CuisineId", "Name");
       return View();
     }
 
@@ -42,6 +44,7 @@ namespace BestRestaurant.Controllers
     public ActionResult Edit(int id)
     {
       var thisRestaurant = _db.Restaurants.FirstOrDefault(restaurant => restaurant.RestaurantId == id);
+      ViewBag.CuisineId = new SelectList(_db.Cuisine, "CuisineId", "Name");
       return View(thisRestaurant);
     }
 
