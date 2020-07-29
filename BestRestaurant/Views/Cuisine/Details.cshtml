@@ -1,0 +1,23 @@
+@using BestRestaurant.Models;
+@model BestRestaurant.Models.Cuisine
+
+<h2>Cuisines</h2>
+<hr/>
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+
+<ul>
+@if (@Model.Restaurants.Count == 0)
+{
+  <p>No restaurants found</p>
+}
+
+@foreach (Restaurant rest in @Model.Restaurants)
+{
+  <li>Name: @rest.Name</li>
+  <li>Description: @rest.Desc</li>
+}
+</ul>
+
+<p>@Html.ActionLink("Edit Cuisine", "Edit", new {id = Model.CuisineId })</p>
+<p>@Html.ActionLink("Delete Cuisine", "Delete", new { id = Model.CuisineId })</p>
+<p>@Html.ActionLink("Back to list", "Index")</p>
