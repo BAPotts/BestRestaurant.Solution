@@ -8,13 +8,21 @@ Restaurant website for tracking restaurants by cuisine type
 
 ## Specifications
 
-1. **Behavior:** Program
-    * **Input Example:**
-    * **Output Example:**
+1. **Behavior:** User will be able to add a Restaurant with a name and description property
+    * **Input Example:** Restaurant { name: Joe's Pasta, desc: In downtown }
+    * **Output Example:** Joe's Pasta has been added to the list
 
-2. **Behavior:** Program
-    * **Input Example:**
-    * **Output Example:**
+2. **Behavior:** User will be able to add a Cuisine type with a name property
+    * **Input Example:** Cuisine { Name: Italian }
+    * **Output Example:** Italian Cuisine has been added to the list
+
+3. **Behavior:** User will be able to add a Cuisine type to a when they create a new Restaurant
+    * **Input Example:** Restaurant { Name: Joe's Pasta, Cuisine: Italian }
+    * **Output Example:** Joe's Pasta has been added to the list with a cuisine type of Italian
+
+4. **Behavior:** User will be able to search for Restaurants by Cuisine type
+    * **Input Example:** Italian
+    * **Output Example:** Joe's Pasta
 
 ## Setup and Installation
 
